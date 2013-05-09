@@ -22,6 +22,8 @@ namespace OpcTestClient
                 System.Threading.Thread.Sleep(100);
                 }
             OpcObj.SynchRead();
+            Console.WriteLine("ASYNCH");
+            OpcObj.AsynchRead(1);
             // this makes sure the console doesnt close immediatly
             Console.ReadLine();
             }
@@ -37,21 +39,6 @@ namespace OpcTestClient
             foreach (Opc.IdentifiedResult writeResult in results)
                 {
                 Console.WriteLine("\t{0} write result: {1}", writeResult.ItemName, writeResult.ResultID);
-                }
-            Console.WriteLine();
-            }
-        
-        //asynchronous read example
-        //Opc.IRequest req;
-        //group.Read(group.Items, 12, new Opc.Da.ReadCompleteEventHandler(ReadCompleteCallback), out req);
-        //from beckhoff
-        //asynch read callback
-        static void ReadCompleteCallback(object clientHandle, Opc.Da.ItemValueResult[] results)
-            {
-            Console.WriteLine("Read completed");
-            foreach (Opc.Da.ItemValueResult readResult in results)
-                {
-                Console.WriteLine("\t{0}\tval:{1}", readResult.ItemName, readResult.Value);
                 }
             Console.WriteLine();
             }

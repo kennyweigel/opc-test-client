@@ -83,5 +83,23 @@ namespace OpcTestClient
             Opc.Da.ItemValueResult[] readResult = OpcSubscription.Read(OpcSubscription.Items);
             Console.WriteLine("Read:\t{0}\tvalue:{1}", readResult[0].ItemName, readResult[0].Value);
             }
+
+        //asynchronous read
+        public void AsynchRead(object reqHandle)
+            {
+            Opc.IRequest req;
+            OpcSubscription.Read(OpcSubscription.Items, reqHandle, new Opc.Da.ReadCompleteEventHandler(this.ReadCompleteCallback), out req);
+            }
+        
+        //asynch read callback
+        protected void ReadCompleteCallback(object clientHandle, Opc.Da.ItemValueResult[] results)
+            {
+            Console.WriteLine("Read completed");
+            foreach (Opc.Da.ItemValueResult readResult in results)
+                {
+                Console.WriteLine("\t{0}\tval:{1}", readResult.ItemName, readResult.Value);
+                }
+            Console.WriteLine();
+            }
         }
     }

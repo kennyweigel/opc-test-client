@@ -4,6 +4,5 @@ C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\D
 C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\Debug\OpcNetApi.dll
 C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\Debug\OpcNetApi.xml
 C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\Debug\OpcNetApi.Com.xml
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\obj\x86\Debug\OpcTestClient.exe
 C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\obj\x86\Debug\OpcTestClient.pdb
