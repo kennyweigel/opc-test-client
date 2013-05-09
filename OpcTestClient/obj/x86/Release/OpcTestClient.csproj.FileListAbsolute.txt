@@ -1,9 +1,0 @@
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\Release\OpcTestClient.exe
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\Release\OpcTestClient.pdb
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\obj\x86\Release\OpcTestClient.exe
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\obj\x86\Release\OpcTestClient.pdb
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\Release\OpcNetApi.Com.dll
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\Release\OpcNetApi.dll
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\Release\OpcNetApi.xml
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\bin\Release\OpcNetApi.Com.xml
-C:\Users\Kenneth.Weigel\Documents\Developer\C#\OpcTestClient\OpcTestClient\obj\x86\Release\OpcTestClient.csprojResolveAssemblyReference.cache
