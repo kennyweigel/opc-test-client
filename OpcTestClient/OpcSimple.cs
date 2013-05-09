@@ -92,12 +92,35 @@ namespace OpcTestClient
             }
         
         //asynch read callback
-        protected void ReadCompleteCallback(object clientHandle, Opc.Da.ItemValueResult[] results)
+        private void ReadCompleteCallback(object clientHandle, Opc.Da.ItemValueResult[] results)
             {
             Console.WriteLine("Read completed");
             foreach (Opc.Da.ItemValueResult readResult in results)
                 {
                 Console.WriteLine("\t{0}\tval:{1}", readResult.ItemName, readResult.Value);
+                }
+            Console.WriteLine();
+            }
+
+        //asynchronous write
+        public void AsynchWrite(object reqHandle)
+            {
+            Opc.IRequest req;
+            Opc.IdentifiedResult[] writeResult = OpcSubscription.Write(OpcItemValues, reqHandle, new Opc.Da.WriteCompleteEventHandler(WriteCompleteCallback), out req);
+            int len = writeResult.Length;
+            for (int i = 0; i < len; i++)
+                {
+                Console.WriteLine("write:\t{0}\twrite result: {1}", writeResult[0].ItemName, writeResult[0].ResultID);
+                }
+            }
+
+        //asynch write callback
+        private void WriteCompleteCallback(object clientHandle, Opc.IdentifiedResult[] results)
+            {
+            Console.WriteLine("Write completed");
+            foreach (Opc.IdentifiedResult writeResult in results)
+                {
+                Console.WriteLine("\t{0} write result: {1}", writeResult.ItemName, writeResult.ResultID);
                 }
             Console.WriteLine();
             }

@@ -24,23 +24,9 @@ namespace OpcTestClient
             OpcObj.SynchRead();
             Console.WriteLine("ASYNCH");
             OpcObj.AsynchRead(1);
+            OpcObj.AsynchWrite(2);
             // this makes sure the console doesnt close immediatly
             Console.ReadLine();
-            }
-
-        //asynchronous write example
-        //Opc.IRequest req;
-        //group.Write(writeValues, 21, new Opc.Da.WriteCompleteEventHandler(WriteCompleteCallback), out req);
-        //from beckhoff
-        //asynch write callback
-        static void WriteCompleteCallback(object clientHandle, Opc.IdentifiedResult[] results)
-            {
-            Console.WriteLine("Write completed");
-            foreach (Opc.IdentifiedResult writeResult in results)
-                {
-                Console.WriteLine("\t{0} write result: {1}", writeResult.ItemName, writeResult.ResultID);
-                }
-            Console.WriteLine();
             }
         }
     }
