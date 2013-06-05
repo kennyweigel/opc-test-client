@@ -7,7 +7,6 @@ namespace OpcTestClient
     {
     class OpcSimple
         {
-        //constructor
         public OpcSimple()
             {
             }
