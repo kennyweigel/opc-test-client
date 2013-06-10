@@ -51,9 +51,9 @@ namespace OpcTestClient
             }
         
         //adds write values to a group
-        //input: array int write values
-        //will need to figure out how to override method to handle different data types
-        public void AddWriteValuesToGroup(int[] writeVals)
+        //input: array <T> write values
+        //this is a generic method and will accept many input types
+        public void AddWriteValuesToGroup<T>(T[] writeVals)
             {
             int len = writeVals.Length;
             OpcItemValues = new Opc.Da.ItemValue[len];

@@ -14,13 +14,9 @@ namespace OpcTestClient
             {
             }
 
-        //public List<int> CorrectValues { get; private set; }
-        //public List<int> LoggedValues { get; private set; }
         public int[] CorrectValues { get; private set; }
         public int[] LoggedValues { get; private set; }
         public DataTable DbDataTable { get; private set; }
-
-
 
         //writes values 0->maxValue to OPC Server, then pauses until user presses enter which
         //will allow them to reconnect to the DB, then writes values maxValue->0 to OPC Server
@@ -77,6 +73,8 @@ namespace OpcTestClient
             return result;
             }
 
+
+//Everything below here will be implemented by SqlSimple class
         private DataTable QueryDb()
             {
             // Create a connection
@@ -139,7 +137,6 @@ namespace OpcTestClient
                 LoggedValues[indexLoggedValues] = Convert.ToInt32(dataTable.Rows[i][3].ToString());
                 indexLoggedValues++;
                 }
-
 
             if (Enumerable.SequenceEqual(CorrectValues, LoggedValues))
                 {
