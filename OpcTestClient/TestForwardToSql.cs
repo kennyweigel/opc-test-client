@@ -14,12 +14,17 @@ namespace OpcTestClient
             }
 
         //disconnect server from DB then run test
-        public bool RunTest<T>(T[] writeValues, int writeInterval)
+        public bool RunTest<T>(string tagName, string tableName, T[] writeValues, int writeInterval)
             {
             OpcSimple OpcObj = new OpcSimple();
             OpcObj.ConnectToServer("opcda://localhost/Kepware.KEPServerEX.V5");
             OpcObj.CreateSubscription("Group");
-            OpcObj.AddItemsToGroup(new string[] { "C1.D1.K1" });
+            OpcObj.AddItemsToGroup(new string[] { tagName });
+
+            SqlSimple Sql = new SqlSimple();
+            Sql.ConnectToDb();
+            Sql.Open();
+            Sql.QueryDb("DELETE FROM [kenneth.weigel].dbo." + tableName);
 
             int writeValuesLength = writeValues.Length;
             for (int i = 0; i < writeValuesLength; i++)
@@ -36,15 +41,14 @@ namespace OpcTestClient
                 "and enough time has passed for all buffered data to be logged to DB");
             Console.ReadLine();
 
-            SqlSimple Sql = new SqlSimple();
-            Sql.ConnectToDb();
-            Sql.Open();
-
-            DataTable dbResults = Sql.QueryDb("SELECT * FROM dbo.testMissingValues");
+            DataTable dbResults = Sql.QueryDb("SELECT * FROM dbo." + tableName);
 
             bool results = CompareResults.VerifyDbData<T>(dbResults, writeValues);
 
-            Sql.QueryDb("DELETE FROM [kenneth.weigel].dbo.testMissingValues");
+            Console.WriteLine("click enter to delete all rows from table");
+            Console.ReadLine();
+            
+            Sql.QueryDb("DELETE FROM [kenneth.weigel].dbo."+tableName);
 
             Sql.Close();
 
