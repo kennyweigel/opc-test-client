@@ -28,7 +28,7 @@ namespace OpcTestClient
 
 
             TestForwardToSql test4 = new TestForwardToSql();
-            test4.RunTest<int>(writeVals, 100);
+            test4.RunTest<int>(writeVals, 200);
 
             // this makes sure the console doesnt close immediatly
             Console.ReadLine();
