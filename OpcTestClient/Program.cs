@@ -24,9 +24,6 @@ namespace OpcTestClient
             TestInterleaving test1 = new TestInterleaving();
             test1.RunTest("C1.D1.K1", "testIntNarrowValues", writeVals1, writeVals2, 200);
 
-            //TestStoreMaxSize test2 = new TestStoreMaxSize();
-            //test2.RunTest(0, 1000, 100);
-
             //creates an array with values 1-100
             //don't start int array with 0, that is the default value for Simulator devices
             int[] writeVals = new int[100];
@@ -35,8 +32,8 @@ namespace OpcTestClient
                 writeVals[i] = i+1;
                 }
 
-            TestForwardToSql test4 = new TestForwardToSql();
-            test4.RunTest<int>("C1.D1.K1", "testIntNarrowValues", writeVals, 200);
+            TestForwardToSql test2 = new TestForwardToSql();
+            test2.RunTest<int>("C1.D1.K1", "testIntNarrowValues", writeVals, 200);
 
             //creates an array of string values
             //dont start string array with "String 1", that is the default value fro Simulator devices
@@ -66,8 +63,8 @@ namespace OpcTestClient
                                       "Engineer","I","want","to","clear","buffered","data","So","I","can","reset","the","buffering","when","testing","3","Can","clear","all","buffered",
                                       "data","Can","clear","data","for","one","log","group","GSK","Okay","with","manually","deleteing","buffer","files","to","achieve","this"};
 
-            TestForwardToSql test5 = new TestForwardToSql();
-            test5.RunTest<string>("C1.D1.S1", "testStringNarrowVals", stringVals, 200);
+            TestForwardToSql test3 = new TestForwardToSql();
+            test3.RunTest<string>("C1.D1.S1", "testStringNarrowVals", stringVals, 200);
 
             // this makes sure the console doesnt close immediatly
             Console.ReadLine();
