@@ -58,13 +58,12 @@ namespace OpcTestClient
                                       "Engineer","I","want","to","clear","buffered","data","So","I","can","reset","the","buffering","when","testing","3","Can","clear","all","buffered",
                                       "data","Can","clear","data","for","one","log","group","GSK","Okay","with","manually","deleteing","buffer","files","to","achieve","this"};
 
-<<<<<<< HEAD
+
             TestForwardToSql test4 = new TestForwardToSql();
-            test4.RunTest<int>(writeVals, 200);
-=======
+            test4.RunTest<int>("C1.D1.K1", "testIntWrites",writeVals, 200);
+
             TestForwardToSql test5 = new TestForwardToSql();
             test5.RunTest<string>("C1.D1.S1", "testStringWrites", stringVals, 200);
->>>>>>> 379a1d83a1f8e8bb76a84c3e3fa44cac245dda73
 
             // this makes sure the console doesnt close immediatly
             Console.ReadLine();
