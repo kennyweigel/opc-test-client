@@ -9,16 +9,23 @@ namespace OpcTestClient
         {
         static void Main(string[] args)
             {
-            //TestInterleaving test1 = new TestInterleaving();
-            //test1.RunTest(0, 10, 12, 22, 100);
+            int[] writeVals1 = new int[100];
+            for (int i = 0; i < 100; i++)
+            {
+                writeVals1[i] = i + 1;
+            }
+
+            int[] writeVals2 = new int[100];
+            for (int i = 0; i < 100; i++)
+            {
+                writeVals2[i] = i + 56;
+            }
+            
+            TestInterleaving test1 = new TestInterleaving();
+            test1.RunTest("C1.D1.K1", "testIntNarrowValues", writeVals1, writeVals2, 200);
 
             //TestStoreMaxSize test2 = new TestStoreMaxSize();
             //test2.RunTest(0, 1000, 100);
-
-            //TestMultiDataTypes test3 = new TestMultiDataTypes();
-            //string[] arr = { "hello", "Kenny" };
-            //test3.RunTest<string>(arr, 200);
-
 
             //creates an array with values 1-100
             //don't start int array with 0, that is the default value for Simulator devices
@@ -29,9 +36,10 @@ namespace OpcTestClient
                 }
 
             TestForwardToSql test4 = new TestForwardToSql();
-            test4.RunTest<int>("C1.D1.K1", "testIntWrites", writeVals, 200);
+            test4.RunTest<int>("C1.D1.K1", "testIntNarrowValues", writeVals, 200);
 
-
+            //creates an array of string values
+            //dont start string array with "String 1", that is the default value fro Simulator devices
             string[] stringVals = {"Store","and","Forward","As","a","Controls","Engineer","I","want","the","DataLogger","to","buffer","collected","data","So","I","don't","lose","data",
                                       "if","the","SQL","server","goes","down","10","EPIC","Notes","Buffer","To","File","As","a","Controls","Engineer","I","want","data","buffered","to",
                                       "a","file","when","I","lose","connectivity","to","the","SQL","server","So","I","don't","lose","the","data","when","the","SQL","server","gets",
@@ -58,12 +66,8 @@ namespace OpcTestClient
                                       "Engineer","I","want","to","clear","buffered","data","So","I","can","reset","the","buffering","when","testing","3","Can","clear","all","buffered",
                                       "data","Can","clear","data","for","one","log","group","GSK","Okay","with","manually","deleteing","buffer","files","to","achieve","this"};
 
-
-            TestForwardToSql test4 = new TestForwardToSql();
-            test4.RunTest<int>("C1.D1.K1", "testIntWrites",writeVals, 200);
-
             TestForwardToSql test5 = new TestForwardToSql();
-            test5.RunTest<string>("C1.D1.S1", "testStringWrites", stringVals, 200);
+            test5.RunTest<string>("C1.D1.S1", "testStringNarrowVals", stringVals, 200);
 
             // this makes sure the console doesnt close immediatly
             Console.ReadLine();

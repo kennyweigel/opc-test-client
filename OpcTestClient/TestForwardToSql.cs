@@ -37,8 +37,7 @@ namespace OpcTestClient
             OpcObj.SynchRead();
 
             //pauses so user can press enter to continue once DB connection is restored.
-            Console.WriteLine("Click enter after server connection to DB is restored " +
-                "and enough time has passed for all buffered data to be logged to DB");
+            Console.WriteLine("Click enter after server connection to DB is restored and enough time has passed for all buffered data to be logged to DB");
             Console.ReadLine();
 
             DataTable dbResults = Sql.QueryDb("SELECT * FROM dbo." + tableName);
@@ -51,6 +50,9 @@ namespace OpcTestClient
             Sql.QueryDb("DELETE FROM [kenneth.weigel].dbo."+tableName);
 
             Sql.Close();
+
+            Console.WriteLine("test is complete, press enter to continue ");
+            Console.ReadLine();
 
             return results;
             }
