@@ -67,6 +67,7 @@
     <Compile Include="SimpleFileDelete.cs" />
     <Compile Include="SqlSimple.cs" />
     <Compile Include="TestForwardToSql.cs" />
+    <Compile Include="TestForwardToSqlMultiDatatypes.cs" />
     <Compile Include="TestInterleaving.cs" />
   </ItemGroup>
   <ItemGroup>
