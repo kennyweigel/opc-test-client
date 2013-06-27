@@ -42,13 +42,11 @@
     <OutputPath>bin\x64\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpcNetApi, Version=2.0.2.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\Admin\AppData\Local\OPC Foundation\NET API 2.01\Source\Bin\OpcNetApi.dll</HintPath>
+    <Reference Include="OpcNetApi">
+      <HintPath>..\OpcNetApiBin\OpcNetApi.dll</HintPath>
     </Reference>
-    <Reference Include="OpcNetApi.Com, Version=2.0.1.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\Admin\AppData\Local\OPC Foundation\NET API 2.01\Source\Bin\OpcNetApi.Com.dll</HintPath>
+    <Reference Include="OpcNetApi.Com">
+      <HintPath>..\OpcNetApiBin\OpcNetApi.Com.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
