@@ -18,12 +18,12 @@ namespace OpcTestClient
         
         //uses my default connection parameters
         public void ConnectToDb(
-            string dataSource = "Data Source = DBASE_SERVER;",
-            string userId = "user id=whosurdaddy;",
-            string password = "password=whosurdaddy;", 
-            string initialCatalog = "Initial Catalog = Kenneth.Weigel;")
+            string dataSource = "DBASE_SERVER",
+            string userId = "whosurdaddy",
+            string password = "whosurdaddy", 
+            string initialCatalog = "Kenneth.Weigel")
             {
-            Connection = new SqlConnection(dataSource + userId + password + initialCatalog);
+            Connection = new SqlConnection("Data Source="+dataSource+";user id="+userId+";password="+password+";Initial Catalog="+initialCatalog+";");
             }
 
         public void Open()

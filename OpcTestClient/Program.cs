@@ -116,7 +116,7 @@ namespace OpcTestClient
 
             //start multiple tag data types forwarding
             TestForwardToSqlMultiDatatypes testasdf = new TestForwardToSqlMultiDatatypes();
-            testasdf.RunTest("allDataTypesNarrow", 200);
+            testasdf.RunTest("allDataTypesNarrow", 200,"KEN-SERVER08R2\\SQLEXPRESS", "test", "test", "test");
             //end
 
             // this makes sure the console doesnt close immediatly
