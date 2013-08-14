@@ -14,17 +14,20 @@ namespace OpcTestClient
             }
 
         //disconnect server from DB then run test
-        public bool RunTest<T>(string tagName, string tableName, T[] writeValues, int writeInterval)
+        public bool RunTest<T>(
+            string tableName,
+            int writeInterval,
+            string tagName,
+            T[] writeValues,
+            string dataSource = "DBASE_SERVER",
+            string userId = "whosurdaddy",
+            string password = "whosurdaddy",
+            string initialCatalog = "Kenneth.Weigel")
             {
             OpcSimple OpcObj = new OpcSimple();
             OpcObj.ConnectToServer("opcda://localhost/Kepware.KEPServerEX.V5");
             OpcObj.CreateSubscription("Group");
             OpcObj.AddItemsToGroup(new string[] { tagName });
-
-            SqlSimple Sql = new SqlSimple();
-            Sql.ConnectToDb();
-            Sql.Open();
-            Sql.QueryDb("DELETE FROM [kenneth.weigel].dbo." + tableName);
 
             int writeValuesLength = writeValues.Length;
             for (int i = 0; i < writeValuesLength; i++)
@@ -40,20 +43,17 @@ namespace OpcTestClient
             Console.WriteLine("Click enter after server connection to DB is restored and enough time has passed for all buffered data to be logged to DB");
             Console.ReadLine();
 
-            DataTable dbResults = Sql.QueryDb("SELECT * FROM dbo." + tableName);
-
-            bool results = CompareResults.VerifyDbData<T>(dbResults, writeValues);
-
-            Console.WriteLine("click enter to delete all rows from table");
-            Console.ReadLine();
-            
-            Sql.QueryDb("DELETE FROM [kenneth.weigel].dbo."+tableName);
-
-            Sql.Close();
+            SqlSimple Sql = new SqlSimple();
+            Sql.ConnectToDb(dataSource, userId, password, initialCatalog);
+            Sql.Open();
+            DataTable dbResults = Sql.QueryDb("SELECT * FROM [" + initialCatalog + "].dbo." + tableName);
 
             Console.WriteLine("test is complete, press enter to continue ");
             Console.ReadLine();
+            Sql.QueryDb("DELETE FROM [" + initialCatalog + "].dbo." + tableName);
+            Sql.Close();
 
+            bool results = CompareResults.VerifyDbData<T>(dbResults, writeValues);
             return results;
             }
         }
