@@ -109,11 +109,6 @@ namespace OpcTestClient
             //testString.RunTest<string>("C1.D1.String", "allDataTypeNarrow", String, 200);
             //end data type testing
 
-            //start copy / deleting store file tests
-            //SimpleFileCopy.Copy("test1.txt", @"C:\Users\Admin\Desktop", @"C:\Users\Admin\Desktop\test");
-            //SimpleFileDelete.Delete(@"C:\Users\Admin\Desktop\test\test1.txt");
-            //end copy / deleting store file tests
-
             //start multiple tag data types forwarding
             TestForwardToSqlMultiDatatypes testasdf = new TestForwardToSqlMultiDatatypes();
             testasdf.RunTest("allDataTypesNarrow", 200,"KEN-SERVER08R2\\SQLEXPRESS", "test", "test", "test");
